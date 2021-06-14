@@ -32,7 +32,7 @@ declarative_base, и впихнули ее в пременную Base
 - db - это файл содержащий Base
 - методы импортируем из sqlalchemy.orm
 """
-
+import Data_base_learn1.config
 
 # Импортируем create_engine
 #  - разбирает url базы на ключевае параметры
@@ -47,17 +47,8 @@ from sqlalchemy.ext.declarative import declarative_base
 # Модули для установки сессии
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-engine = create_engine('postgresql://wsornele:MLyvZ3hoJsEtYrsZ4A45H-5oR74-VTTe@hattie.db.elephantsql.com/wsornele')
-"""
-В engine переменную введем фунцию, которая разеберет url для подключения
-по частям, и будует использовать параметры для подкючения к базе на облаке
-create_engine() - создаем движок для подключения
-postgres://  используем постгрес
-wsornele - имя пользователя
-:MLyvZ3hoJsEtYrsZ4A45H-5oR74-VTTe - пароль
-@hattie.db.elephantsql.com - название хоста (серевера)
-/wsornele - название базы данных
-"""
+engine = create_engine(Data_base_learn1.config.KEY_REMOTE_BASE)
+# Look url and details in file Data_base_learn1.config
 
 db_session = scoped_session(sessionmaker(bind=engine))
 """
