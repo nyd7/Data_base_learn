@@ -6,5 +6,7 @@ __pycache__/
 env/
 settings.py
 config.py
+alembic.ini
 *.db
 *.csv
+
